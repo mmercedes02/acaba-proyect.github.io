@@ -55,6 +55,24 @@
             </div>
         </div>
     </footer>
+
+
+    <!-- <div class="box-sensors d-none d-flex h-100 small sensors fw-bold justify-content-betwen align-items-center text-center">
+        <div class="w-50 data-sensor-1">
+            <div class="bar-sensor small d-grid" style="height: {height1}%;{heigthStyle1}">
+                {Sensor1}
+                <span class="material-symbols-outlined">sensors</span>
+                <span class="small">1</span>
+            </div>
+        </div>
+        <div class="w-50 data-sensor-2">
+            <div class="bar-sensor small d-grid" style="height: {height2}%;{heigthStyle2}">
+                {Sensor2}
+                <span class="material-symbols-outlined">sensors</span>
+                <span class="small">2</span>
+            </div>
+        </div>
+    </div>  -->    
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
@@ -87,30 +105,20 @@
     const sensorPlaceHolder =
         `
             <div class="col-auto">
-                <div class="item-trash small p-2 mx-2 my-4">
-                    <h2 class="data-title h5">{Nombre}</h2>
-                    <div class="data-batery text-secondary d-flex gap-1 justify-content-center mt-3 mb-3 text-center align-items-center">
-                        <span class="material-symbols-outlined">battery_horiz_075</span>
-                        <span class="small">{Batteria}v</span>
-                    </div>
-                    <div class="box-sensors d-flex h-100 small sensors fw-bold justify-content-betwen align-items-center text-center">
-                        <div class="w-50 data-sensor-1">
-                            <div class="bar-sensor small d-grid" style="height: {height1}px;{heigthStyle1}">
-                                {Sensor1}
-                                <span class="material-symbols-outlined">sensors</span>
-                                <span class="small">1</span>
-                            </div>
+                <div class="item-trash small pt-3 p-2 mx-2 my-4">
+                    <h2 class="data-title h5">{Nombre}</h2>     
+                    <div class="w-100 d-flex mt-3 justify-content-betwen align-items-center">
+                        <div class="data-pro-sensor text-secondary d-flex text-center align-items-center mx-auto ms-2">
+                            <span class="material-symbols-outlined">sensors</span>
+                            <span class="small">1</span>
                         </div>
-                        <div class="w-50 data-sensor-2">
-                            <div class="bar-sensor small d-grid" style="height: {height2}px;{heigthStyle2}">
-                                {Sensor2}
-                                <span class="material-symbols-outlined">sensors</span>
-                                <span class="small">2</span>
-                            </div>
-                        </div>
+                        <div class="data-batery text-secondary d-flex text-center align-items-center mx-auto me-2">
+                            <span class="material-symbols-outlined">battery_charging_full</span>
+                            <span class="small">{Batteria}v</span>
+                        </div> 
                     </div>
                     <div class="data-ip text-muted small shadow rounded w-100 text-center mt-3">{IPAdd}</div>
-
+                    <div class="bar-sub-data" style="height:50%;"></div> <!--Usar p-yellow y p-red para cuando el contenedor llegue a este porcentajes-->
                 </div>
             </div>
             `
@@ -131,6 +139,7 @@
                     }
                     const heightKey = k === 'Sensor1' ? `{height1}` : `{height2}`
                     const styleKey = k === 'Sensor1' ? `{heigthStyle1}` : `{heigthStyle2}`
+
                     sensorHtml = sensorHtml.replaceAll(heightKey, height);
                     sensorHtml = sensorHtml.replaceAll(styleKey, style);
                 }

@@ -15,7 +15,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     cursor: pointer;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .item-trash * {
-    z-index: 2;
+    z-index: 4;
     position: relative;
 }
 
@@ -127,4 +127,24 @@
 
 .box-sensors>div.data-sensor-2>div {
     background: #2196F3;
+}
+
+
+.pro-box-sensors{
+    height: 100%;
+}
+.bar-sub-data{
+    background-color: #0097123b;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-radius: 6px;
+    z-index: 2;
+}
+.bar-sub-data.p-yellow{
+    background-color: #cebc003b;
+}
+.bar-sub-data.p-red{
+    background-color: #b126003b;
 }
