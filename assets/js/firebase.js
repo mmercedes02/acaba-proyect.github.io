@@ -1,12 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyCR5hQAYNMKouHLYyOygvEEY6dX9WUSxJg",
     authDomain: "acaba-infotep.firebaseapp.com",
@@ -17,9 +11,8 @@ const firebaseConfig = {
     appId: "1:1082030107993:web:88951c347cbd0c85c03048",
     measurementId: "G-4NWQT62586"
 };
-const app = initializeApp(firebaseConfig);
 // Initialize Firebase
-const analytics = getAnalytics(app);
+const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const starCountRef = ref(db, 'Sensores');
 const sensorPlaceHolder =
