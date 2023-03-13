@@ -110,7 +110,7 @@
                     <div class="w-100 d-flex mt-3 justify-content-betwen align-items-center">
                         <div class="data-pro-sensor text-secondary d-flex text-center align-items-center mx-auto ms-2">
                             <span class="material-symbols-outlined">sensors</span>
-                            <span class="small">1</span>
+                            <span class="small"></span>
                         </div>
                         <div class="data-batery text-secondary d-flex text-center align-items-center mx-auto me-2">
                             <span class="material-symbols-outlined">battery_charging_full</span>
@@ -118,7 +118,7 @@
                         </div> 
                     </div>
                     <div class="data-ip text-muted small shadow rounded w-100 text-center mt-3">{IPAdd}</div>
-                    <div class="bar-sub-data" style="height:50%;"></div> <!--Usar p-yellow y p-red para cuando el contenedor llegue a este porcentajes-->
+                    <div class="bar-sub-data {fillColor}" style="height:{Sensor3}%;"></div> <!--Usar p-yellow y p-red para cuando el contenedor llegue a este porcentajes-->
                 </div>
             </div>
             `
@@ -130,18 +130,15 @@
             let sensorHtml = sensorPlaceHolder;
             for (let k in sensor) {
                 sensorHtml = sensor[k] ? sensorHtml.replaceAll(`{${k}}`, sensor[k]) : '';
-                if(k === 'Sensor1' || k === 'Sensor2' ){
-                    let height = parseInt(sensor[k]); 
-                    let style = ''                   
-                    if(height < 0){
-                        height = 0;
-                        style = 'padding: 0px !important;'
+                if(k === 'Sensor3'){
+                    const height = parseInt(sensor[k]); 
+                    let fillColor = ''                   
+                    if(height > 70 && height < 90){
+                        fillColor = 'p-yellow'
+                    } else if(height >= 90) {
+                        fillColor = 'p-red'
                     }
-                    const heightKey = k === 'Sensor1' ? `{height1}` : `{height2}`
-                    const styleKey = k === 'Sensor1' ? `{heigthStyle1}` : `{heigthStyle2}`
-
-                    sensorHtml = sensorHtml.replaceAll(heightKey, height);
-                    sensorHtml = sensorHtml.replaceAll(styleKey, style);
+                    sensorHtml = sensorHtml.replace('{fillColor}', fillColor);                    
                 }
             }
             sensorsHtml += sensorHtml;
